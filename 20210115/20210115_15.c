@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-void test(int i)
+void test()
 {
     i++;
 }
 int main()
 {
-    static int g_iValue = 5;
-    test(g_iValue);
-    test(g_iValue);
-    test(g_iValue);
-    printf("%d", g_iValue);
+    static int s_iValue = 5;
+    test();
+    test();
+    test();
+    printf("%d", s_iValue);
     return 0;
 }
