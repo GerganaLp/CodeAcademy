@@ -2,7 +2,7 @@
 
 void test()
 {
-    i++;
+    s_iValue++;
 }
 int main()
 {
