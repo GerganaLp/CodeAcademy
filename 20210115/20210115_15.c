@@ -1,9 +1,5 @@
 #include <stdio.h>
-
-void test()
-{
-    s_iValue++;
-}
+void test();
 int main()
 {
     static int s_iValue = 5;
@@ -12,4 +8,8 @@ int main()
     test();
     printf("%d", s_iValue);
     return 0;
+}
+void test()
+{
+    s_iValue++;
 }
