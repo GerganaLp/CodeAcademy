@@ -5,7 +5,7 @@ int main()
 {
 
     char str[] = "Hello";
-    char rts[5];
+    char rts[6];
     rts[0] = str[4];
     rts[1] = str[3];
     rts[2] = str[2];
