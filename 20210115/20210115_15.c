@@ -2,14 +2,15 @@
 void test();
 int main()
 {
-    static int s_iValue = 5;
+  
     test();
     test();
     test();
-    printf("%d", s_iValue);
-    return 0;
+  
 }
 void test()
 {
+    static int s_iValue=1;
     s_iValue++;
+    printf("%d \n",s_iValue);
 }
