@@ -2,11 +2,15 @@
 #define CONST_PI (3.14159)
 float area(float r);
 int main(void){
-   float r;
-    printf("Enter the radiius of a circle\n");
-    scanf("%f",&r);
-    printf("%.2f",area(r));
-
+   float r=1.5;
+   printf("%.2f",area(r));
+    printf("\n");
+   float r1=1;
+   printf("%.2f",area(r1));
+   printf("\n");
+    float r2=13;
+   printf("%.2f",area(r2));
+    printf("\n");
     return 0;
 }
 float area(float r){
