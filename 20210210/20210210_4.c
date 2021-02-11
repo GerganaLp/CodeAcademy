@@ -7,9 +7,9 @@ int main(void)
 {
     srand((unsigned int)(time(NULL)));
     int i;
-    char pass[13]; 
+    char pass[7]; 
 
-    printf("Press enter to get a twelve-character password\n");
+    printf("Press enter to get a six-character password\n");
     getchar();
 
     for (i = 0; i < 4; i++) 
