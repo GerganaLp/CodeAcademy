@@ -1,43 +1,58 @@
 /* Задача 7. Разгледайте и имплементирайте quicksort алгоритъма. */ 
 
+#include <stdio.h>
+#include <stdlib.h>
+void printArray(int * x, int size){
+	int i;
+	printf("\n\n");
+	for(i =0; i< size; ++i){
+		printf("%d ", x[i]);
+	}
+	printf("\n\n");
+}
 
-#include<stdio.h>
-void quicksort(int number[25],int first,int last);
+
+int swap(int * x, int begin, int pivot){
+	if(x == NULL){
+		return 0;
+	}
+	int temp =0;
+	int i = begin,j = pivot -1;
+	while(j >= i){
+		if(i == j){
+			temp = x[j];
+			x[j] = x[pivot];
+			x[pivot] = temp;
+			break;
+		}
+		while(x[i] <= x[pivot]){++i;}
+		while(x[j] > x[pivot]){--j;}
+		
+		temp = x[j];
+		x[j] = x[pivot];
+		x[pivot] = x[i];
+		x[i] = temp;
+		pivot = j;
+		--j;
+		++i;
+	}
+	return i;
+}
+
+void quickSort(int * x, int begin, int end){
+	if(begin < end){
+		int p = swap(x,begin,end);
+		quickSort(x,begin, p -1);
+		quickSort(x, p+1, end);
+	}
+}
+
 int main(void){
-  int i, count, number[25];
-  printf("Enter some elements (Max. - 25): ");
-  scanf("%d",&count);
-  printf("Enter %d elements: ", count);
-    for(i=0;i<count;i++)
-      scanf("%d",&number[i]);
-    quicksort(number,0,count-1);
-      printf("The Sorted Order is: ");
-        for(i=0;i<count;i++)
-          printf(" %d",number[i]);
-  return 0;
-}
-
-void quicksort(int number[25],int first,int last){
-  int i, j, pivot, temp;
-  if(first<last){
-    pivot=first;
-    i=first;
-    j=last;
-  while(i<j){
-  while(number[i]<=number[pivot]&&i<last)
-    i++;
-  while(number[j]>number[pivot])
-    j--;
-  if(i<j){
-    temp=number[i];
-    number[i]=number[j];
-  number[j]=temp;
-  }
-}
-  temp=number[pivot];
-  number[pivot]=number[j];
-  number[j]=temp;
-  quicksort(number,first,j-1);
-  quicksort(number,j+1,last);
-  }
+	int x [] = {3,7,8,5,2,1,9,5,4};
+	printf("\nBegin: ");
+	printArray(x, 9);
+	quickSort(x, 0, 8);
+	printf("\nEnd: ");
+	printArray(x, 9);
+	return 0;
 }
