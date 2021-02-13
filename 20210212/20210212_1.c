@@ -10,19 +10,25 @@
 
 int main()
 {
-    int *arr= NULL;
-    int br=0;
-    int sum=0;
-    
-    printf("Enter number of elements");
-    scanf("%d", &br);
-    arr=(int*)malloc(br* sizeof(int)); //zadelqme pamet koqto da e kolkoto razmeryt na vyvedenata stoinost
-    for(int i=0; i< br; i++) { // za chetene na masiva 
-        printf("Enter elements:%d ", i+1);
-        scanf("%d",(arr+1));
-        sum+=*(arr+1);
+    int n, i, *ptr, sum = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    ptr = (int*) calloc(n, sizeof(int));
+    if(ptr == NULL)
+    {
+        printf("Error! memory not allocated.");
+        exit(0);
     }
-    printf("sum of elements are:  %d ", sum);
-    free(arr); // osvobojdavame pametta
+
+    printf("Enter elements: ");
+    for(i = 0; i < n; ++i)
+    {
+        scanf("%d", ptr + i);
+        sum += *(ptr + i);
+    }
+
+    printf("Sum = %d", sum);
+    free(ptr);
     return 0;
 }
