@@ -1,10 +1,8 @@
 #include"game.h"
 #define col 7
 #define row 7
-#define col2 7
-#define row2 7
 
-int board[7][7] = {
+int board[row][col] = {
     {45, 45, 16, 45, 45, 45, 45},
     {45, 45, 11, 3, 13, 45, 45},
     {45, 22, 6, 7, 8, 9, 21},
@@ -13,7 +11,7 @@ int board[7][7] = {
     {45, 45, 10, 23, 24, 45, 45},
     {45, 45, 45, 45, 45, 45, 45}};
 
-static int Oldboard[7][7] = {
+static int Oldboard[row][col] = {
     {45, 45, 16, 45, 45, 45, 45},
     {45, 45, 11, 3, 13, 45, 45},
     {45, 22, 6, 7, 8, 9, 21},
@@ -69,11 +67,9 @@ void redoMoves()
     switch (choice)
     {
     case 1:
-
         printOldBoard();
         printf("Game over");
         break;
-
     case 2:
         printf("You win!!!");
         break;
@@ -100,12 +96,9 @@ menu:
         scanf("%d", &number);
         if (number == 1 || number == 2 || number == 10 || number == 4 || number == 22)
         {
-
             switch (number)
             {
-
             case 1:
-
                 if (number == 1)
                 {
                     int temp = board[4][5];
